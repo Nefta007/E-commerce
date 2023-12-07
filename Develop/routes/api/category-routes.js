@@ -51,7 +51,7 @@ router.post('/', (req, res) => {
     .then((categoryData) =>
       res.json(categoryData))
     .catch(err => {
-      //console.log(err);
+      console.log(err);
       res.status(500).json(err);
     });
 });
@@ -80,7 +80,6 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
   // delete a category by its `id` value
   Category.destroy({
-   // category_name: req.body,
     where: {
       id: req.params.id
     }

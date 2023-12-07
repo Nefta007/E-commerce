@@ -131,7 +131,7 @@ router.put('/:id', (req, res) => {
       return res.json(product);
     })
     .catch((err) => {
-      // console.log(err);
+       console.log(err);
       res.status(400).json(err);
     });
 });
@@ -151,7 +151,7 @@ router.delete('/:id', (req, res) => {
     res.json(productData);
   })
   .catch((err) => {
-    //console.log(err);
+    console.log(err);
     res.status(500).json(err);
   });
 });

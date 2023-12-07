@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
   // find all tags
   // be sure to include its associated Product data
   Tag.findAll({
-    attribute:["id", "tag_name"],
+    //attribute:["id", "tag_name"],
     include:[{
       model: Product,
       attribute: ["product_name", "price", "stock", "category_id"],
@@ -27,12 +27,12 @@ router.get('/:id', (req, res) => {
     where:{
       id:req.params.id
     },
-    attribute:["id", "tag_name"],
+    //attribute:["id", "tag_name"],
     include:[{
       model: Product,
-      attribute: ["id", "product_name", "price", "stock", "category_id"],
-      through: ProductTag,
-      as: "products",
+      attribute: ["product_name", "price", "stock", "category_id"],
+      //through: ProductTag,
+      //as: "products",
     },],
   })
   .then(tagData=>{
@@ -67,7 +67,7 @@ router.put('/:id', (req, res) => {
     }
   })
   .then(tagData=>{
-    if(!tagData[0]){
+    if(!tagData){
       res.status(404).json({message: "There is no such ID"});
       return;
     }
